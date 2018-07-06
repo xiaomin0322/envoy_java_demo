@@ -1,0 +1,15 @@
+server:  
+  port: ${PORT:9301}
+
+spring:  
+  application:
+    name: person-service
+
+endpoints:
+  shutdown:
+    enabled: true
+    sensitive: false
+
+envoy:
+  discovery:
+    url: ${DISCOVERY_URL:http://192.168.16.201:9201}
