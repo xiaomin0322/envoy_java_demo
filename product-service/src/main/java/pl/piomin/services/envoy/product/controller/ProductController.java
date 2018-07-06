@@ -61,12 +61,19 @@ public class ProductController {
 		
 	}
 
+	
+	/**
+	 * 
+	 * @param id
+	 * @param request
+	 * @return
+	 */
 	//@GetMapping("/{id}")
 	@RequestMapping(value = "/findById", method = RequestMethod.GET)
 	public Product findById(@RequestParam("id") Long id,HttpServletRequest request) {
 		  System.out.println("------- findById -------id=="+id);
 		
-		//HttpGet get =new HttpGet("http://192.168.16.201:10003/person/findById?id="+id);
+		  //调用本地容器中的envoy 代理。去访问 person  容器中 方法。才能把链路穿起来
 		  HttpGet get =new HttpGet("http://127.0.0.1:10003/person/findById?id="+id);
 			
 		  Enumeration<String> requestHeader = request.getHeaderNames();
